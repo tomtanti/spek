@@ -1,7 +1,6 @@
 buildscript {
     junitVersion = '4.11'
-    kotlinVersion = '0.1-SNAPSHOT'
-    version = '0.1-SNAPSHOT'
+    kotlinVersion = '0.9.66'
     repositories {
         mavenCentral()
         maven {
@@ -12,6 +11,10 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}"
     }
 }
+if (hasProperty("teamcity") && kotlin_version != '0.1-SNAPSHOT') {
+    version = teamcity["build.number"]
+} else
+    version = "0.1-SNAPSHOT"
 
 group = 'org.jetbrains.spek'
 
