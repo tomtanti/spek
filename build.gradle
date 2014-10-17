@@ -11,7 +11,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}"
     }
 }
-if (hasProperty("teamcity") && kotlin_version != '0.1-SNAPSHOT') {
+if (hasProperty("teamcity") && kotlinVersion != '0.1-SNAPSHOT') {
     version = teamcity["build.number"]
 } else
     version = "0.1-SNAPSHOT"
